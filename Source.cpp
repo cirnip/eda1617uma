@@ -5,18 +5,13 @@
 #include <ctime>
 #include <iomanip>
 #include <conio.h>
+#include "aeroporto.h"
 
 using namespace std;
-
-const char* nome_do_aeroporto = "aeroporto EDA";
 
 /**********************************************************************************************************
 * ficheiros
 **********************************************************************************************************/
-struct fich {
-	char* 	nome_ficheiro = new char[25];
-	int 	max_linhas = 0;
-};
 
 fich* ficheiro_novo(char* nome_ficheiro) {
 	fich* 		novo = new fich;
@@ -63,22 +58,9 @@ fich* voo = ficheiro_novo((char*)"voo.txt");
 /**********************************************************************************************************
 * passageiros
 **********************************************************************************************************/
+
 int bilhete_conta = 0;
 
-struct passageiro {
-	char* 	primeiro_nome = new char[25];
-	char* 	segundo_nome = new char[25];
-	char*	nacionalidade = new char[50];
-	int 	bilhete;
-};
-/*
-struct ciclo_de_passageiros {
-	passageiro** passageiros;
-	int qtd;
-	char* voo;
-	char* origem;
-};
-*/
 void passageiro_mostra(passageiro* p) {
 	cout << "\tbilhete: TK" << setfill('0') << setw(10) << p->bilhete << "\t"
 		<< "nome: " << p->segundo_nome << " " << p->primeiro_nome << "\t"
@@ -98,15 +80,6 @@ passageiro* passageiro_novo(char* primeiro_nome, char* segundo_nome, char* nacio
 /**********************************************************************************************************
 * avioes
 **********************************************************************************************************/
-
-struct aviao {
-	char* 		voo = new char[25];
-	char* 		modelo = new char[25];
-	char* 		origem = new char[50];
-	char* 		destino = new char[50];
-	int 		capacidade;
-	passageiro** passageiros;
-};
 
 aviao* aviao_novo(char* voo, char* modelo, char* origem, int capacidade, char* destino = (char*)nome_do_aeroporto) {
 	aviao* novo			= new aviao;
@@ -142,24 +115,7 @@ void aviao_mostra(aviao* a) {
 /**********************************************************************************************************
 * simulacao
 **********************************************************************************************************/
-const int max_avioes_pista = 2;//7;
-const int max_avioes_aproximacao = 2;//10;
-const int max_avioes_descolagem = 2;//5;
-const int max_ciclos_passageiros = 2;
 
-struct aeroporto_zona {
-	char* 	nome;
-	aviao** avioes;
-	int 	vagas;
-	int 	max;
-};
-/*
-struct passageiros_em_terra {
-	ciclo_de_passageiros** ciclos;
-	int ciclos_vagos;
-	int max;
-};
-*/
 aeroporto_zona* aeroporto_zona_nova(int max_vagas, char* nome) {
 	aeroporto_zona* novo = new aeroporto_zona;
 	novo->nome = nome;
@@ -167,17 +123,7 @@ aeroporto_zona* aeroporto_zona_nova(int max_vagas, char* nome) {
 	novo->vagas = novo->max = max_vagas;
 	return novo;
 }
-/*
-passageiros_em_terra* passageiros_em_terra_nova(int max_ciclos) {
-	passageiros_em_terra* novo = new passageiros_em_terra;
-	novo->ciclos_vagos = novo->max = max_ciclos;
-	novo->ciclos = new ciclo_de_passageiros*[max_ciclos];
-	for (int i = 0; i < novo->max; i++) {
-		novo->ciclos[i] = new ciclo_de_passageiros;
-	}
-	return novo;
-}
-*/
+
 void ciclo(aeroporto_zona* aproximacao, aeroporto_zona* pista, aeroporto_zona* descolagem){//, passageiros_em_terra* ciclos_de_passageiros) {
 	int i; // iterator
 	if (descolagem->vagas == 0) {
@@ -205,51 +151,6 @@ void ciclo(aeroporto_zona* aproximacao, aeroporto_zona* pista, aeroporto_zona* d
 		}
 	}
 	if (aproximacao->vagas == 0) {
-		// passageiros no aeroporto
-		/*
-		ciclos_de_passageiros->ciclos[0] = NULL;
-		delete ciclos_de_passageiros->ciclos[0];
-
-		for (i = 0; i < ciclos_de_passageiros->max - 1; i++) {
-			ciclos_de_passageiros->ciclos[i] = ciclos_de_passageiros->ciclos[i + 1];
-		}
-		ciclos_de_passageiros->ciclos[ciclos_de_passageiros->max - 1] = new ciclo_de_passageiros;
-
-		int prox = ciclos_de_passageiros->max - ciclos_de_passageiros->ciclos_vagos;
-		ciclos_de_passageiros->ciclos[prox]->qtd = aproximacao->avioes[0]->capacidade;
-		ciclos_de_passageiros->ciclos[prox]->origem = aproximacao->avioes[0]->origem;
-		ciclos_de_passageiros->ciclos[prox]->voo = aproximacao->avioes[0]->voo;
-
-		for (i = 0; i < ciclos_de_passageiros->ciclos[prox]->qtd; i++) {
-			ciclos_de_passageiros->ciclos[prox]->passageiros[i] = aproximacao->avioes[0]->passageiros[i];
-		}
-		*/
-		/*
-		int passageiros_estrangeiros = 0;
-		for (i = 0; i < aproximacao->avioes[0]->capacidade; i++) {
-			if (aproximacao->avioes[0]->passageiros[i]->nacionalidade != "Portugal") {
-				passageiros_estrangeiros++;
-			}
-		}
-		ciclos_de_passageiros->ciclos[prox]->qtd = passageiros_estrangeiros;
-		ciclos_de_passageiros->ciclos[prox]->origem = aproximacao->avioes[0]->origem;
-		ciclos_de_passageiros->ciclos[prox]->voo = aproximacao->avioes[0]->voo;
-		ciclos_de_passageiros->ciclos[prox]->passageiros = new passageiro*[ciclos_de_passageiros->ciclos[prox]->qtd];
-		int j = 0;
-		for (i = 0; i < aproximacao->avioes[0]->capacidade; i++) {
-			if (aproximacao->avioes[0]->passageiros[i]->nacionalidade != "Portugal") {
-				cout << "aqui";
-				passageiro_mostra( aproximacao->avioes[0]->passageiros[i]);
-				ciclos_de_passageiros->ciclos[prox]->passageiros[j] = aproximacao->avioes[0]->passageiros[i];
-				if (ciclos_de_passageiros->ciclos[prox]->qtd == j++) {
-					break;
-				}
-			}
-		}
-		if (ciclos_de_passageiros->ciclos_vagos > 1)
-			ciclos_de_passageiros->ciclos_vagos--;
-		*/
-		// fim de passageiros no aeroporto
 		aproximacao->avioes[0]->passageiros = NULL;
 		pista->avioes[pista->max - pista->vagas] = aproximacao->avioes[0];
 		pista->vagas--;
@@ -276,18 +177,7 @@ void zona_mostra(aeroporto_zona* zona) {
 		cout << "\tsem avioes" << endl;
 	}
 }
-/*
-void passageiros_em_terra_mostra(passageiros_em_terra* ciclos_de_passageiros) {
-	cout << endl << "->" << "passageiros em terra: " << endl;
-	for (int i = 0; i < ciclos_de_passageiros->max - ciclos_de_passageiros->ciclos_vagos; i++) {
-		cout << "voo: " << ciclos_de_passageiros->ciclos[i]->voo
-			<< " origem: " << ciclos_de_passageiros->ciclos[i]->origem << endl;
-		for (int j = 0; j < ciclos_de_passageiros->ciclos[i]->qtd; j++) {
-			passageiro_mostra(ciclos_de_passageiros->ciclos[i]->passageiros[j]);
-		}
-	}
-}
-*/
+
 void aeroporto_mostra(aeroporto_zona* aproximacao, aeroporto_zona* pista, aeroporto_zona* descolagem){//, passageiros_em_terra* ciclos_de_passageiros) {
 	cout << endl << endl << "*** ciclo ***" << endl;
 	zona_mostra(descolagem);
@@ -319,6 +209,9 @@ int main(int argc, char **argv) {
 	// interaccao
 	unsigned char input;
 	do {
+
+		cout << "(c)iclo (s)air (g)ravar" << endl;
+
 		input = _getch();
 		if (input == 'c') {
 			ciclo(aproximacao, pista, descolagem);// , ciclos_de_passageiros);
@@ -332,6 +225,6 @@ int main(int argc, char **argv) {
 			}
 			escrita.close();
 		}
-	} while (input != 'q' && input != 'Q');
+	} while (input != 's' && input != 'S');
 	return 0;
 }
