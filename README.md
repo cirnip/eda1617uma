@@ -6,3 +6,4 @@
 	- implementação do resto das funcionalidades que não foram pedidas na 1ª entrega
 	- implementação das funcionalidades extra
 
+**Data de entrega: 31/05/2017**
