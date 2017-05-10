@@ -186,15 +186,43 @@ void aeroporto_mostra(aeroporto_zona* aproximacao, aeroporto_zona* pista, aeropo
 	//passageiros_em_terra_mostra(ciclos_de_passageiros);
 }
 
+void ler_ficheiro(aeroporto_zona* aproximacao, aeroporto_zona* pista, aeroporto_zona* descolagem, char **argv) {
+
+	// a leitura do ficheiro é feita APÓS a criação de structs nas variáveis
+
+	ifstream ficheiro_leitura;
+	ficheiro_leitura.open(argv[1]);
+
+	if (!ficheiro_leitura.fail()) {
+
+
+		// max_avioes_aproximacao tem de ser alterado
+		//for (int i = 0; i < max_avioes_aproximacao; i++) {
+
+		//	getline(ficheiro_leitura)
+
+		//}
+
+	}
+
+}
+
 /**********************************************************************************************************
 * principal
 **********************************************************************************************************/
 int main(int argc, char **argv) {
 	int i = 0;
-	if (argc > 1) {
-		ifstream ficheiro_leitura(argv[1]);
-//		cout << getline() << endl;
-	}
+
+	/*
+		Leitura do ficheiro de texto previamente gravado com dados do aeroporto (por agora,
+		é o ficheiro de texto "g.txt")
+	*/
+
+	//if (argc > 1) {
+
+	//	ifstream ficheiro_leitura(argv[1]);
+	//	// cout << getline() << endl;
+	//}
 
 
 	srand(time(0));
@@ -205,6 +233,12 @@ int main(int argc, char **argv) {
 	aeroporto_zona* descolagem = aeroporto_zona_nova(max_avioes_descolagem, (char*)"avioes para descolar");
 
 	//passageiros_em_terra* ciclos_de_passageiros = passageiros_em_terra_nova(max_ciclos_passageiros);
+
+	//if (argc > 1) {
+
+	//	ler_ficheiro(aproximacao, pista, descolagem, argv);
+
+	//}
 
 	// interaccao
 	unsigned char input;
@@ -220,10 +254,71 @@ int main(int argc, char **argv) {
 		if (input == 'g') {
 			ofstream escrita;
 			escrita.open("g.txt");
-			for (i = 0; i < aproximacao->max; i++) {
-				escrita << aproximacao->avioes[i]->capacidade << aproximacao->avioes[i]->destino << aproximacao->avioes[i]->modelo;
+
+			escrita << "aproximacao: ";
+
+			for (i = 0; i < (aproximacao->max - aproximacao->vagas); i++) {
+
+				// escrita << aproximacao->avioes[i]->capacidade << ";" << aproximacao->avioes[i]->destino << ";" << aproximacao->avioes[i]->modelo;
+				// escrita << "{" << aproximacao->avioes[i]->modelo << "," << aproximacao->avioes[i]->destino << "," << aproximacao->avioes[i]->capacidade << "},";
+
+				// --- representação mais pipi da escrita no ficheiro de texto --- //
+
+				/* escrita << "Avião " << aproximacao->avioes[i] << ":\n\n" <<
+					"Modelo: " << aproximacao->avioes[i]->modelo << "\n" <<
+					"Destino: " << aproximacao->avioes[i]->destino << "\n" <<
+					"Capacidade: " << aproximacao->avioes[i]->capacidade << "\n" << endl;
+				*/
+
+				// --------------------------------------------------------------- //
+
+				escrita << "{" << aproximacao->avioes[i]->voo << ";" <<
+					aproximacao->avioes[i]->modelo << ";" <<
+					aproximacao->avioes[i]->origem << ";" <<
+					aproximacao->avioes[i]->destino << ";" <<
+					aproximacao->avioes[i]->capacidade << ";";
+
+					for (int j = 0; j < aproximacao->avioes[i]->capacidade; j++) {
+						escrita << aproximacao->avioes[i]->passageiros[i]->bilhete << ";" <<
+						aproximacao->avioes[i]->passageiros[i]->nacionalidade << ";" <<
+						aproximacao->avioes[i]->passageiros[i]->primeiro_nome << ";" <<
+						aproximacao->avioes[i]->passageiros[i]->segundo_nome << "}, ";
+					}
+
 			}
+
+			escrita << "\n";
+			escrita << "pista: ";
+
+			for (i = 0; i < (pista->max - pista->vagas); i++) {
+
+				escrita << "{" << pista->avioes[i]->voo << ";" <<
+						pista->avioes[i]->modelo << ";" <<
+						pista->avioes[i]->origem << ";" <<
+						pista->avioes[i]->destino << ";" <<
+						// pista->avioes[i]->capacidade << ";" <<
+
+						pista->avioes[i]->capacidade << "}, ";
+
+						// pista->avioes[i]->passageiros[i] << "}, ";
+
+			}
+
+			escrita << "\n";
+			escrita << "descolagem: ";
+
+			for (i = 0; i < (descolagem->max - descolagem->vagas); i++) {
+
+				escrita << "{" << descolagem->avioes[i]->modelo << ";" << descolagem->avioes[i]->destino << ";" << descolagem->avioes[i]->capacidade << "},";
+
+			}
+
+			escrita << "\n";
+
 			escrita.close();
+
+			cout << "Ficheiro gravado com sucesso." << endl;
+
 		}
 	} while (input != 's' && input != 'S');
 	return 0;

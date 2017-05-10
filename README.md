@@ -6,4 +6,13 @@
 	- implementação do resto das funcionalidades que não foram pedidas na 1ª entrega
 	- implementação das funcionalidades extra
 
+* Funcionalidades que faltam:
+	- Gravação dos dados (3.1.2)
+	- Situação de emergência (3.2)
+	- Passageiros no aeroporto (3.5 e 3.5.1)
+	- Outras funcionalidades (5)
+
+* Funcionalidades por ajustar:
+	- Documentação melhorada do projecto (comentários)
+
 **Data de entrega: 31/05/2017**

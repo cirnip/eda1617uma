@@ -23,7 +23,7 @@ struct aviao {
 
 // simulação
 
-const char* nome_do_aeroporto = "aeroporto EDA";
+const char* nome_do_aeroporto = "Aeroporto EDA";
 
 const int max_avioes_pista = 2;//7;
 const int max_avioes_aproximacao = 2;//10;

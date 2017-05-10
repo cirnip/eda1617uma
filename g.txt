@@ -1,1 +1,3 @@
-9aeroporto EDAA3006aeroporto EDAA350
+aproximacao: {JL43;A320;Cincinnati/Kentucky;Aeroporto EDA;9;62;Peru;Paul;LEE}, 62;Peru;Paul;LEE}, 62;Peru;Paul;LEE}, 62;Peru;Paul;LEE}, 62;Peru;Paul;LEE}, 62;Peru;Paul;LEE}, 62;Peru;Paul;LEE}, 62;Peru;Paul;LEE}, 62;Peru;Paul;LEE}, {BA268;A319;Bengaluru Airport;Aeroporto EDA;10;86;Honduras;Rayan;ANDERSON}, 86;Honduras;Rayan;ANDERSON}, 86;Honduras;Rayan;ANDERSON}, 86;Honduras;Rayan;ANDERSON}, 86;Honduras;Rayan;ANDERSON}, 86;Honduras;Rayan;ANDERSON}, 86;Honduras;Rayan;ANDERSON}, 86;Honduras;Rayan;ANDERSON}, 86;Honduras;Rayan;ANDERSON}, 86;Honduras;Rayan;ANDERSON}, 
+pista: {EW1466;B737-800	;Boston Logan Airport;Aeroporto EDA;12}, {VS401;A320;Muscat Intl Airport;Aeroporto EDA;12}, 
+descolagem: {A330neo;Dusseldorf Airport;12},{B737-900ER;Halifax Stanfield;14},
