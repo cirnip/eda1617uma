@@ -195,6 +195,12 @@ void ler_ficheiro(aeroporto_zona* aproximacao, aeroporto_zona* pista, aeroporto_
 
 	if (!ficheiro_leitura.fail()) {
 
+		for (int i = 0; i < (aproximacao->max - aproximacao->vagas); i++) {
+
+			ficheiro_leitura.ignore(20, 'voo');
+			ficheiro_leitura.seekg(2, ficheiro_leitura.beg);
+
+		}
 
 		// max_avioes_aproximacao tem de ser alterado
 		//for (int i = 0; i < max_avioes_aproximacao; i++) {
@@ -234,11 +240,11 @@ int main(int argc, char **argv) {
 
 	//passageiros_em_terra* ciclos_de_passageiros = passageiros_em_terra_nova(max_ciclos_passageiros);
 
-	//if (argc > 1) {
+	if (argc > 1) {
 
-	//	ler_ficheiro(aproximacao, pista, descolagem, argv);
+		ler_ficheiro(aproximacao, pista, descolagem, argv);
 
-	//}
+	}
 
 	// interaccao
 	unsigned char input;
@@ -255,7 +261,7 @@ int main(int argc, char **argv) {
 			ofstream escrita;
 			escrita.open("g.txt");
 
-			escrita << "aproximacao: ";
+			// escrita << "aproximacao: ";
 
 			for (i = 0; i < (aproximacao->max - aproximacao->vagas); i++) {
 
@@ -272,18 +278,26 @@ int main(int argc, char **argv) {
 
 				// --------------------------------------------------------------- //
 
-				escrita << "{" << aproximacao->avioes[i]->voo << ";" <<
-					aproximacao->avioes[i]->modelo << ";" <<
-					aproximacao->avioes[i]->origem << ";" <<
-					aproximacao->avioes[i]->destino << ";" <<
-					aproximacao->avioes[i]->capacidade << ";";
+				escrita << "{\n"
+					"\taproximacao: " << i << " {\n" << 
+					"\t\tvoo: " << aproximacao->avioes[i]->voo << ",\n" <<
+					"\t\tmodelo: " << aproximacao->avioes[i]->modelo << ",\n" <<
+					"\t\torigem: "  << aproximacao->avioes[i]->origem << ",\n" <<
+					"\t\tdestino: " << aproximacao->avioes[i]->destino << ",\n" <<
+					"\t\tcapacidade: " << aproximacao->avioes[i]->capacidade << ",\n";
 
 					for (int j = 0; j < aproximacao->avioes[i]->capacidade; j++) {
-						escrita << aproximacao->avioes[i]->passageiros[i]->bilhete << ";" <<
-						aproximacao->avioes[i]->passageiros[i]->nacionalidade << ";" <<
-						aproximacao->avioes[i]->passageiros[i]->primeiro_nome << ";" <<
-						aproximacao->avioes[i]->passageiros[i]->segundo_nome << "}, ";
+						escrita << "\t\tpassageiro: " << j << " {\n" << 
+						"\t\t\tbilhete: TK" << setfill('0') << setw(10) << aproximacao->avioes[i]->passageiros[j]->bilhete << ",\n" <<
+						"\t\t\tnacionalidade: " << aproximacao->avioes[i]->passageiros[j]->nacionalidade << ",\n" <<
+						"\t\t\tprimeiro_nome: " << aproximacao->avioes[i]->passageiros[j]->primeiro_nome << ",\n" <<
+						"\t\t\tsegundo_nome: " << aproximacao->avioes[i]->passageiros[j]->segundo_nome << ",\n";
+
+						escrita << "\t\t}\n";
+
 					}
+
+					escrita << "}\n";
 
 			}
 

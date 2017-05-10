@@ -1,3 +1,103 @@
-aproximacao: {JL43;A320;Cincinnati/Kentucky;Aeroporto EDA;9;62;Peru;Paul;LEE}, 62;Peru;Paul;LEE}, 62;Peru;Paul;LEE}, 62;Peru;Paul;LEE}, 62;Peru;Paul;LEE}, 62;Peru;Paul;LEE}, 62;Peru;Paul;LEE}, 62;Peru;Paul;LEE}, 62;Peru;Paul;LEE}, {BA268;A319;Bengaluru Airport;Aeroporto EDA;10;86;Honduras;Rayan;ANDERSON}, 86;Honduras;Rayan;ANDERSON}, 86;Honduras;Rayan;ANDERSON}, 86;Honduras;Rayan;ANDERSON}, 86;Honduras;Rayan;ANDERSON}, 86;Honduras;Rayan;ANDERSON}, 86;Honduras;Rayan;ANDERSON}, 86;Honduras;Rayan;ANDERSON}, 86;Honduras;Rayan;ANDERSON}, 86;Honduras;Rayan;ANDERSON}, 
-pista: {EW1466;B737-800	;Boston Logan Airport;Aeroporto EDA;12}, {VS401;A320;Muscat Intl Airport;Aeroporto EDA;12}, 
-descolagem: {A330neo;Dusseldorf Airport;12},{B737-900ER;Halifax Stanfield;14},
+{
+	aproximacao: 0 {
+		voo: LH2476,
+		modelo: B737-900ER,
+		origem: New York JFK Airport,
+		destino: Aeroporto EDA,
+		capacidade: 7,
+		passageiro: 0 {
+			bilhete: TK0000000093,
+			nacionalidade: Nigeria,
+			primeiro_nome: Raphaël,
+			segundo_nome: BENNETT,
+		}
+		passageiro: 1 {
+			bilhete: TK0000000094,
+			nacionalidade: Turkmenistan,
+			primeiro_nome: Noa,
+			segundo_nome: HILL,
+		}
+		passageiro: 2 {
+			bilhete: TK0000000095,
+			nacionalidade: Macedonia,
+			primeiro_nome: Lorenzo,
+			segundo_nome: WRIGHT,
+		}
+		passageiro: 3 {
+			bilhete: TK0000000096,
+			nacionalidade: Tajikistan (Tadzhik),
+			primeiro_nome: Maxime,
+			segundo_nome: WILLIAMS	  ,
+		}
+		passageiro: 4 {
+			bilhete: TK0000000097,
+			nacionalidade: Bulgaria,
+			primeiro_nome: Mathias,
+			segundo_nome: WILSON,
+		}
+		passageiro: 5 {
+			bilhete: TK0000000098,
+			nacionalidade: Haiti,
+			primeiro_nome: Mathias,
+			segundo_nome: THOMPSON,
+		}
+		passageiro: 6 {
+			bilhete: TK0000000099,
+			nacionalidade: Slovak Republic,
+			primeiro_nome: Francisca,
+			segundo_nome: THOMAS,
+		}
+}
+{
+	aproximacao: 1 {
+		voo: BA891,
+		modelo: B777 Freighter,
+		origem: Taiwan Taoyuan Airport,
+		destino: Aeroporto EDA,
+		capacidade: 7,
+		passageiro: 0 {
+			bilhete: TK0000000109,
+			nacionalidade: Mali,
+			primeiro_nome: Gaspard,
+			segundo_nome: MORRIS,
+		}
+		passageiro: 1 {
+			bilhete: TK0000000110,
+			nacionalidade: Kampuchea,
+			primeiro_nome: Dylan,
+			segundo_nome: WILLIAMS	  ,
+		}
+		passageiro: 2 {
+			bilhete: TK0000000111,
+			nacionalidade: Gaza Strip,
+			primeiro_nome: Ana,
+			segundo_nome: RUSSELL,
+		}
+		passageiro: 3 {
+			bilhete: TK0000000112,
+			nacionalidade: Oman,
+			primeiro_nome: Mathieu,
+			segundo_nome: THOMPSON,
+		}
+		passageiro: 4 {
+			bilhete: TK0000000113,
+			nacionalidade: Nigeria,
+			primeiro_nome: Aaron,
+			segundo_nome: STEWART,
+		}
+		passageiro: 5 {
+			bilhete: TK0000000114,
+			nacionalidade: Ivory Coast (Cote D'Ivoire),
+			primeiro_nome: Sofia,
+			segundo_nome: RUSSELL,
+		}
+		passageiro: 6 {
+			bilhete: TK0000000115,
+			nacionalidade: Ukraine,
+			primeiro_nome: Lorenzo,
+			segundo_nome: COOPER,
+		}
+}
+
+pista: {MH4;B767-300ER;Helsinki Airport;Aeroporto EDA;9}, {BA1449;B737 MAX 9;Brussels Airport;Aeroporto EDA;7}, 
+descolagem: {B737 MAX 200;Denver Airport;12},{A318;Taiwan Taoyuan Airport;9},
