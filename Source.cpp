@@ -191,15 +191,44 @@ void emergencia(aeroporto_zona* aproximacao, aeroporto_zona* pista, aeroporto_zo
 	char voo_emergencia;
 	char voo_descolar;
 
+	aviao** aviao_emergencia = NULL;
+	aviao** aviao_descolar = NULL;
+
 	cout << "Qual é o número do voo que precisa de aterrar com emergência?" << endl;
-	cin >> voo_emergencia;
+	// cin >> voo_emergencia[10];
+
+	voo_emergencia = cin.get();
+
+	for (int i = 0; i < aproximacao->max - aproximacao->vagas; i++) {
+
+		if (voo_emergencia == *aproximacao->avioes[i]->voo) {
+
+			*&aviao_emergencia = &aproximacao->avioes[i];
+			break;
+
+		}
+
+	}
 
 	if (pista->vagas == 0) {
 
 		cout << "A pista não tem espaço para o voo emergência.\n" <<
-			"Qual é o número do voo que quer retirar da pista?";
+			"Qual é o número do voo que quer retirar da pista?" << endl;
 
 		cin >> voo_descolar;
+
+		// voo_descolar = cin.get();
+
+		for (int i = 0; i < pista->max - pista->vagas; i++) {
+
+			if (voo_descolar == *pista->avioes[i]->voo) {
+
+				*&aviao_descolar = &pista->avioes[i];
+				break;
+
+			}
+
+		}
 
 		// o ideal seria criar uma função para cada zona que executa eventos no ciclo
 
@@ -216,11 +245,30 @@ void emergencia(aeroporto_zona* aproximacao, aeroporto_zona* pista, aeroporto_zo
 
 		}
 
-
+		(*aviao_descolar)->destino = gera(destino);
+		(*aviao_descolar)->origem = (char*)nome_do_aeroporto;
+		// gerou um conjunto novo de passageiros
+		// passageiros_gera(pista->avioes[0]->passageiros, pista->avioes[0]->capacidade);
+		(*aviao_descolar)->passageiros = new passageiro*[(*aviao_descolar)->capacidade];
+		for (int i = 0; i < (*aviao_descolar)->capacidade; i++) {
+			(*aviao_descolar)->passageiros[i] = passageiro_novo(gera(primeiro_nome), gera(segundo_nome), gera(nacionalidade));
+		}
+		descolagem->avioes[descolagem->max - descolagem->vagas] = (*aviao_descolar);
+		descolagem->vagas--;
+		pista->vagas++;
+		for (int i = 0; i < pista->max - pista->vagas; i++) {
+			pista->avioes[i] = pista->avioes[i + 1];
+		}
 
 	}
 
-
+	(*aviao_emergencia)->passageiros = NULL;
+	pista->avioes[pista->max - pista->vagas] = (*aviao_emergencia);
+	pista->vagas--;
+	for (int i = 0; i< aproximacao->max - aproximacao->vagas; i++) {
+		aproximacao->avioes[i] = aproximacao->avioes[i + 1];
+	}
+	aproximacao->vagas++;
 
 }
 
@@ -298,7 +346,7 @@ int main(int argc, char **argv) {
 
 		if (input == 'e') {
 
-			emergencia();
+			emergencia(aproximacao, pista, descolagem);
 
 		}
 

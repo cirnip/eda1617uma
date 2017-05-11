@@ -1,103 +1,133 @@
 {
 	aproximacao: 0 {
-		voo: LH2476,
-		modelo: B737-900ER,
-		origem: New York JFK Airport,
+		voo: A3602,
+		modelo: B737-700,
+		origem: Hyderabad Airport,
 		destino: Aeroporto EDA,
 		capacidade: 7,
 		passageiro: 0 {
-			bilhete: TK0000000093,
-			nacionalidade: Nigeria,
-			primeiro_nome: Raphaël,
-			segundo_nome: BENNETT,
+			bilhete: TK0000000108,
+			nacionalidade: No Nationality,
+			primeiro_nome: Sara,
+			segundo_nome: MARTIN,
 		}
 		passageiro: 1 {
-			bilhete: TK0000000094,
-			nacionalidade: Turkmenistan,
-			primeiro_nome: Noa,
-			segundo_nome: HILL,
-		}
-		passageiro: 2 {
-			bilhete: TK0000000095,
-			nacionalidade: Macedonia,
-			primeiro_nome: Lorenzo,
-			segundo_nome: WRIGHT,
-		}
-		passageiro: 3 {
-			bilhete: TK0000000096,
-			nacionalidade: Tajikistan (Tadzhik),
-			primeiro_nome: Maxime,
-			segundo_nome: WILLIAMS	  ,
-		}
-		passageiro: 4 {
-			bilhete: TK0000000097,
-			nacionalidade: Bulgaria,
-			primeiro_nome: Mathias,
-			segundo_nome: WILSON,
-		}
-		passageiro: 5 {
-			bilhete: TK0000000098,
-			nacionalidade: Haiti,
-			primeiro_nome: Mathias,
+			bilhete: TK0000000109,
+			nacionalidade: Cayman Islands,
+			primeiro_nome: Quentin,
 			segundo_nome: THOMPSON,
 		}
+		passageiro: 2 {
+			bilhete: TK0000000110,
+			nacionalidade: Georgia,
+			primeiro_nome: Enzo,
+			segundo_nome: COUNTY,
+		}
+		passageiro: 3 {
+			bilhete: TK0000000111,
+			nacionalidade: Ghana,
+			primeiro_nome: Adam,
+			segundo_nome: JAMES,
+		}
+		passageiro: 4 {
+			bilhete: TK0000000112,
+			nacionalidade: Mongolia,
+			primeiro_nome: Victor,
+			segundo_nome: COLLINS,
+		}
+		passageiro: 5 {
+			bilhete: TK0000000113,
+			nacionalidade: Macedonia,
+			primeiro_nome: Yanis,
+			segundo_nome: GREEN,
+		}
 		passageiro: 6 {
-			bilhete: TK0000000099,
-			nacionalidade: Slovak Republic,
-			primeiro_nome: Francisca,
-			segundo_nome: THOMAS,
+			bilhete: TK0000000114,
+			nacionalidade: Burkina Faso,
+			primeiro_nome: Evan,
+			segundo_nome: WILLIAMS	  ,
 		}
 }
 {
 	aproximacao: 1 {
-		voo: BA891,
-		modelo: B777 Freighter,
-		origem: Taiwan Taoyuan Airport,
+		voo: BA1333,
+		modelo: B737-900ER,
+		origem: Hong Kong Intl Airport,
 		destino: Aeroporto EDA,
-		capacidade: 7,
+		capacidade: 12,
 		passageiro: 0 {
-			bilhete: TK0000000109,
-			nacionalidade: Mali,
-			primeiro_nome: Gaspard,
-			segundo_nome: MORRIS,
+			bilhete: TK0000000128,
+			nacionalidade: Armenia	,
+			primeiro_nome: Gabriel,
+			segundo_nome: ALLEN,
 		}
 		passageiro: 1 {
-			bilhete: TK0000000110,
-			nacionalidade: Kampuchea,
-			primeiro_nome: Dylan,
-			segundo_nome: WILLIAMS	  ,
+			bilhete: TK0000000129,
+			nacionalidade: Cyprus,
+			primeiro_nome: Lucas,
+			segundo_nome: ALLEN,
 		}
 		passageiro: 2 {
-			bilhete: TK0000000111,
-			nacionalidade: Gaza Strip,
-			primeiro_nome: Ana,
-			segundo_nome: RUSSELL,
+			bilhete: TK0000000130,
+			nacionalidade: Stateless - Alien Unable to Name a Country,
+			primeiro_nome: Raphaël,
+			segundo_nome: DAVIES,
 		}
 		passageiro: 3 {
-			bilhete: TK0000000112,
-			nacionalidade: Oman,
-			primeiro_nome: Mathieu,
-			segundo_nome: THOMPSON,
+			bilhete: TK0000000131,
+			nacionalidade: Gambia,
+			primeiro_nome: Noé,
+			segundo_nome: KING,
 		}
 		passageiro: 4 {
-			bilhete: TK0000000113,
-			nacionalidade: Nigeria,
-			primeiro_nome: Aaron,
-			segundo_nome: STEWART,
+			bilhete: TK0000000132,
+			nacionalidade: Grenada,
+			primeiro_nome: Ethan,
+			segundo_nome: MARTIN,
 		}
 		passageiro: 5 {
-			bilhete: TK0000000114,
-			nacionalidade: Ivory Coast (Cote D'Ivoire),
-			primeiro_nome: Sofia,
-			segundo_nome: RUSSELL,
+			bilhete: TK0000000133,
+			nacionalidade: Kirghizia (Kyrgyzstan),
+			primeiro_nome: Maxence,
+			segundo_nome: WATSON,
 		}
 		passageiro: 6 {
-			bilhete: TK0000000115,
-			nacionalidade: Ukraine,
-			primeiro_nome: Lorenzo,
-			segundo_nome: COOPER,
+			bilhete: TK0000000134,
+			nacionalidade: Republic of the Marshall Islands,
+			primeiro_nome: Mathis,
+			segundo_nome: SHAW,
+		}
+		passageiro: 7 {
+			bilhete: TK0000000135,
+			nacionalidade: St. Kitts, West Indies,
+			primeiro_nome: Paul,
+			segundo_nome: ROBERTS,
+		}
+		passageiro: 8 {
+			bilhete: TK0000000136,
+			nacionalidade: Federated States of Micronesa,
+			primeiro_nome: Samuel,
+			segundo_nome: BAKER,
+		}
+		passageiro: 9 {
+			bilhete: TK0000000137,
+			nacionalidade: Guatemala,
+			primeiro_nome: Noé,
+			segundo_nome: COLLINS,
+		}
+		passageiro: 10 {
+			bilhete: TK0000000138,
+			nacionalidade: Tanzania,
+			primeiro_nome: Corentin,
+			segundo_nome: ROBERTS,
+		}
+		passageiro: 11 {
+			bilhete: TK0000000139,
+			nacionalidade: Haiti,
+			primeiro_nome: Arthur,
+			segundo_nome: PARKER,
 		}
 }
 
-pista: {MH4;B767-300ER;Helsinki Airport;Aeroporto EDA;9}, {BA1449;B737 MAX 9;Brussels Airport;Aeroporto EDA;7}, 
-descolagem: {B737 MAX 200;Denver Airport;12},{A318;Taiwan Taoyuan Airport;9},
+pista: {BA38;B787-9;Billund Airport;Aeroporto EDA;11}, {BA641;B777-300ER;London City Airport;Aeroporto EDA;6}, 
+descolagem: {B747-8;Luxembourg Airport;12},{B737 MAX 200;Geneva Intl Airport;13},

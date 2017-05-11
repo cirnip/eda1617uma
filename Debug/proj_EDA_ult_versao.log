@@ -1,4 +1,4 @@
 ﻿  Source.cpp
-c:\users\r\source\repos\eda1617uma\source.cpp(234): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  proj_EDA_ult_versao.vcxproj -> C:\Users\r\Source\Repos\eda1617uma\Debug\proj_EDA_ult_versao.exe
-  proj_EDA_ult_versao.vcxproj -> C:\Users\r\Source\Repos\eda1617uma\Debug\proj_EDA_ult_versao.pdb (Full PDB)
+c:\users\ricardo\source\repos\eda1617uma\source.cpp(320): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  proj_EDA_ult_versao.vcxproj -> C:\Users\Ricardo\Source\Repos\eda1617uma\Debug\proj_EDA_ult_versao.exe
+  proj_EDA_ult_versao.vcxproj -> C:\Users\Ricardo\Source\Repos\eda1617uma\Debug\proj_EDA_ult_versao.pdb (Partial PDB)
