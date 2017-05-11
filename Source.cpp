@@ -186,6 +186,44 @@ void aeroporto_mostra(aeroporto_zona* aproximacao, aeroporto_zona* pista, aeropo
 	//passageiros_em_terra_mostra(ciclos_de_passageiros);
 }
 
+void emergencia(aeroporto_zona* aproximacao, aeroporto_zona* pista, aeroporto_zona* descolagem) {
+
+	char voo_emergencia;
+	char voo_descolar;
+
+	cout << "Qual é o número do voo que precisa de aterrar com emergência?" << endl;
+	cin >> voo_emergencia;
+
+	if (pista->vagas == 0) {
+
+		cout << "A pista não tem espaço para o voo emergência.\n" <<
+			"Qual é o número do voo que quer retirar da pista?";
+
+		cin >> voo_descolar;
+
+		// o ideal seria criar uma função para cada zona que executa eventos no ciclo
+
+		if (descolagem->vagas == 0) {
+
+			descolagem->avioes[0] = NULL;
+			delete descolagem->avioes[0];
+
+			descolagem->vagas++;
+
+			for (int i = 0; i < descolagem->max - descolagem->vagas; i++) {
+				descolagem->avioes[i] = descolagem->avioes[i + 1];
+			}
+
+		}
+
+
+
+	}
+
+
+
+}
+
 void ler_ficheiro(aeroporto_zona* aproximacao, aeroporto_zona* pista, aeroporto_zona* descolagem, char **argv) {
 
 	// a leitura do ficheiro é feita APÓS a criação de structs nas variáveis
@@ -250,13 +288,20 @@ int main(int argc, char **argv) {
 	unsigned char input;
 	do {
 
-		cout << "(c)iclo (s)air (g)ravar" << endl;
+		cout << "(c)iclo (s)air (g)ravar (e)mergencia" << endl;
 
 		input = _getch();
 		if (input == 'c') {
 			ciclo(aproximacao, pista, descolagem);// , ciclos_de_passageiros);
 			aeroporto_mostra(aproximacao, pista, descolagem);// , ciclos_de_passageiros);
 		}
+
+		if (input == 'e') {
+
+			emergencia();
+
+		}
+
 		if (input == 'g') {
 			ofstream escrita;
 			escrita.open("g.txt");
